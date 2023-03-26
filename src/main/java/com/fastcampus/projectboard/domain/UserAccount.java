@@ -51,7 +51,7 @@ public class UserAccount extends AuditingFields {
         this.memo = memo;
     }
 
-    public UserAccount of(String userId, String userPassword, String email, String nickname, String memo) {
+    public static UserAccount of(String userId, String userPassword, String email, String nickname, String memo) {
         return new UserAccount(userId, userPassword, email, nickname, memo);
     }
 
@@ -59,7 +59,7 @@ public class UserAccount extends AuditingFields {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof UserAccount userAccount)) return false;
-        return id.equals(userAccount.id);
+        return id != null && id.equals(userAccount.id);
     }
 
     @Override
