@@ -31,7 +31,6 @@ public class DataRestTest {
     @DisplayName("[api] 게시글 리스트 조회")
     @Test
     void givenNothing_whenRequestingArticles_thenReturnsArticlesJsonResponse() throws Exception {
-
         // given
 
         // when & then
@@ -39,13 +38,11 @@ public class DataRestTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.valueOf("application/hal+json")))
                 .andDo(print());
-
     }
 
     @DisplayName("[api] 게시글 단건 조회")
     @Test
     void givenNothing_whenRequestingArticle_thenReturnsArticleJsonResponse() throws Exception {
-
         // given
 
         // when & then
@@ -53,13 +50,11 @@ public class DataRestTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.valueOf("application/hal+json")))
                 .andDo(print());
-
     }
 
     @DisplayName("[api] 게시글 -> 댓글 리스트 조회")
     @Test
     void givenNothing_whenRequestingArticleCommentsFromArticle_thenReturnsArticleCommentsJsonResponse() throws Exception {
-
         // given
 
         // when & then
@@ -67,13 +62,11 @@ public class DataRestTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.valueOf("application/hal+json")))
                 .andDo(print());
-
     }
 
     @DisplayName("[api] 댓글 리스트 조회")
     @Test
     void givenNothing_whenRequestingArticleComments_thenReturnsArticleCommentsJsonResponse() throws Exception {
-
         // given
 
         // when & then
@@ -87,7 +80,6 @@ public class DataRestTest {
     @DisplayName("[api] 댓글 단건 조회")
     @Test
     void givenNothing_whenRequestingArticleComment_thenReturnsArticleCommentJsonResponse() throws Exception {
-
         // given
 
         // when & then
@@ -95,13 +87,11 @@ public class DataRestTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.valueOf("application/hal+json")))
                 .andDo(print());
-
     }
 
     @DisplayName("[api] 회원 관련 API 는 일체 제공하지 않음")
     @Test
     void givenNothing_whenRequestingUserAccounts_thenThrowsException() throws Exception {
-
         // given
 
         // when & then
@@ -111,7 +101,6 @@ public class DataRestTest {
         mvc.perform(patch("/api/userAccounts")).andExpect(status().isNotFound());
         mvc.perform(delete("/api/userAccounts")).andExpect(status().isNotFound());
         mvc.perform(head("/api/userAccounts")).andExpect(status().isNotFound());
-
     }
 
 }
