@@ -25,7 +25,6 @@ class MainControllerTest {
     @DisplayName("루트 페이지 테스트")
     @Test
     void givenNothing_whenRequestingRootPage_thenRedirectsToArticlesPage() throws Exception {
-
         // given
 
         // when & then
@@ -33,7 +32,6 @@ class MainControllerTest {
                 .andExpect(view().name("forward:/articles"))
                 .andExpect(forwardedUrl("/articles"))
                 .andDo(MockMvcResultHandlers.print());
-
     }
 
 }

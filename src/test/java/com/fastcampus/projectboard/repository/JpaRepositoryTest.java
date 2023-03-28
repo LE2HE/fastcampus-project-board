@@ -37,7 +37,6 @@ class JpaRepositoryTest {
     @DisplayName("select 테스트")
     @Test
     void givenTestData_whenSelecting_thenWorkFine() {
-
         // given
 
         // when
@@ -47,13 +46,11 @@ class JpaRepositoryTest {
         assertThat(articles)
                 .isNotNull()
                 .hasSize(123);
-
     }
 
     @DisplayName("insert 테스트")
     @Test
     void givenTestData_whenInserting_thenWorkFine() {
-
         // given
         long previousCount = articleRepository.count();
         UserAccount userAccount = userAccountRepository.save(UserAccount.of("park", "pw", null, null, null));
@@ -64,13 +61,11 @@ class JpaRepositoryTest {
 
         // then
         assertThat(articleRepository.count()).isEqualTo(previousCount + 1);
-
     }
 
     @DisplayName("update 테스트")
     @Test
     void givenTestData_whenUpdating_thenWorkFine() {
-
         // given
         Article article = articleRepository.findById(1L).orElseThrow();
         String updatedHashtag = "#springboot";
@@ -81,13 +76,11 @@ class JpaRepositoryTest {
 
         // then
         assertThat(savedArticle).hasFieldOrPropertyWithValue("hashtag", updatedHashtag);
-
     }
 
     @DisplayName("delete 테스트")
     @Test
     void givenTestData_whenDeleting_thenWorkFine() {
-
         // given
         Article article = articleRepository.findById(1L).orElseThrow();
         long previousArticleCount = articleRepository.count();
@@ -100,7 +93,6 @@ class JpaRepositoryTest {
         // then
         assertThat(articleRepository.count()).isEqualTo(previousArticleCount - 1);
         assertThat(articleCommentRepository.count()).isEqualTo(previousArticleCommentCount - deletedCommentsSize);
-
     }
 
 }
