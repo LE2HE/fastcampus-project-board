@@ -1,11 +1,11 @@
 -- 테스트 계정
 -- TODO : 비밀번호 노출된 데이터 세팅으로 개선 고려
 insert into user_account (user_id, user_password, nickname, email, memo, created_at, created_by, modified_at, modified_by) values
-('lee', 'asdf1234', 'Lee', 'lee@mail.com', 'I am Lee.', now(), 'lee', now(), 'lee')
+('lee', '{noop}asdf1234', 'Lee', 'lee@mail.com', 'I am Lee.', now(), 'lee', now(), 'lee')
 ;
 
 insert into user_account (user_id, user_password, nickname, email, memo, created_at, created_by, modified_at, modified_by) values
-('kim', 'asdf1234', 'Kim', 'kim@mail.com', 'I am Kim.', now(), 'kim', now(), 'kim')
+('kim', '{noop}asdf1234', 'Kim', 'kim@mail.com', 'I am Kim.', now(), 'kim', now(), 'kim')
 ;
 
 -- 123 게시글
