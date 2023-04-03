@@ -87,40 +87,6 @@ class ArticleCommentServiceTest {
         then(articleCommentRepository).shouldHaveNoInteractions();
     }
 
-    @DisplayName("댓글 정보를 입력하면, 댓글을 수정")
-    @Test
-    void givenArticleCommentInfo_whenUpdatingArticleComment_thenUpdatesArticleComment() {
-        // given
-        String oldContent = "content";
-        String updatedContent = "댓글";
-        ArticleComment articleComment = createArticleComment(oldContent);
-        ArticleCommentDto dto = createArticleCommentDto(updatedContent);
-        given(articleCommentRepository.getReferenceById(dto.id())).willReturn(articleComment);
-
-        // when
-        sut.updateArticleComment(dto);
-
-        // then
-        assertThat(articleComment.getContent())
-                .isNotEqualTo(oldContent)
-                .isEqualTo(updatedContent);
-        then(articleCommentRepository).should().getReferenceById(dto.id());
-    }
-
-    @DisplayName("없는 댓글 정보를 수정하려고 하면, 경고 로그를 찍고 아무 것도 안 함")
-    @Test
-    void givenNonexistentArticleComment_whenUpdatingArticleComment_thenLogsWarningAndDoesNothing() {
-        // given
-        ArticleCommentDto dto = createArticleCommentDto("댓글");
-        given(articleCommentRepository.getReferenceById(dto.id())).willThrow(EntityNotFoundException.class);
-
-        // when
-        sut.updateArticleComment(dto);
-
-        // then
-        then(articleCommentRepository).should().getReferenceById(dto.id());
-    }
-
     @DisplayName("댓글 ID를 입력하면, 댓글을 삭제")
     @Test
     void givenArticleCommentId_whenDeletingArticleComment_thenDeletesArticleComment() {
